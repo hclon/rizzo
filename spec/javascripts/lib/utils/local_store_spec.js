@@ -128,6 +128,10 @@ define([ "lib/utils/local_store" ], function(LocalStore) {
           it("should return proper cookie value for given key", function() {
             expect(ls.getCookie("madonna", "rob=duck;madonna=rabbit")).toEqual("rabbit");
           });
+
+          it("does not crash when there are no cookies at all"), function() {
+            expect(ls.getCookie("duck", "").toEqual(undefined);
+          });
         });
 
         describe("removeCookie()", function() {
