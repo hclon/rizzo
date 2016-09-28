@@ -1,10 +1,10 @@
 require([
   "jquery",
-  "zeroclipboard",
   "lib/utils/konami",
   "lib/core/ad_manager",
   "lib/components/slider",
   "lib/styleguide/charts",
+  "lib/utils/click_to_copy",
   "lib/components/poi_map",
   "lib/components/poi_list",
   "lib/components/page_hopper",
