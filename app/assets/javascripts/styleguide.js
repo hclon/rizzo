@@ -33,7 +33,7 @@ require([
   "picker",
   "pickerDate",
   "pickerLegacy",
-], function($, ZeroClipboard, Konami, AdManager, Slider, Charts, POIMap, POIList, PageHopper, ThumbSlider, CarRentalWidget, TravelInsurance, FlightsWidget) {
+], function($, Konami, AdManager, Slider, Charts, ClickToCopy, POIMap, POIList, PageHopper, ThumbSlider, CarRentalWidget, TravelInsurance, FlightsWidget) {
 
   "use strict";
 
@@ -50,7 +50,7 @@ require([
   });
 
   $("[data-clipboard-text]").each(function(_, element) {
-    new ZeroClipboard(element);
+    new ClickToCopy(element);
   });
 
   var d = new Date();
