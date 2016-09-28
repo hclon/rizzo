@@ -2,7 +2,6 @@ define(function() {
   "use strict";
 
   function fadeOutElement(element) {
-    window.elem = element.parentElement;
     var fadeEffect = setInterval(function() {
       if (element.style.opacity > 0) {
         element.style.opacity -= 0.1;
@@ -16,7 +15,6 @@ define(function() {
   }
 
   function flashFeedback($colourTile, colour) {
-    window.tile = $colourTile;
     var feedbackMessage = document.createElement("div");
     feedbackMessage.style.marginTop = "-8px";
     feedbackMessage.style.color = colour;

@@ -15,7 +15,7 @@
 
           .col--one-fifth{ data: { luminance: @app.get_luminance(colour_value) } }
             .card
-              .styleguide-block__item--colour.copy--h2{style: "background-color: #{colour_value}; cursor: pointer", class: @app.get_luminance(colour_value) > 200 ? "is-light" : "", "data-clipboard-text" => colour_value.strip, title: "Click to copy to clipboard"}<
+              .styleguide-block__item--colour.copy--h2.clickable{style: "background-color: #{colour_value}", class: @app.get_luminance(colour_value) > 200 ? "is-light" : "", "data-clipboard-text" => colour_value.strip, title: "Click to copy to clipboard"}<
                 = colour_value
               %code<
                 = colour_pair[0]
