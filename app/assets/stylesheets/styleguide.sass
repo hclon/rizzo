@@ -170,6 +170,10 @@ pre.styleguide.is-open
       white-space: nowrap
 
 .styleguide-block__item--colour
+
+.colour-box
+  position: relative
+  cursor: copy
   +font-size(13)
   padding: 25px 0
   color: white
@@ -180,6 +184,36 @@ pre.styleguide.is-open
     color: $body-copy
   .is-approximate &
     border-color: transparent
+  &.is-copied
+    cursor: default
+
+.colour-box__msg
+  position: absolute
+  width: 100%
+  opacity: 0
+  transition: all .4s
+  .colour-box:hover &
+    opacity: 1
+    margin-bottom: 10px
+    margin-top: -10px
+.colour-box__msg-copy
+  .colour-box:hover &
+    opacity: 1
+  .colour-box.is-copied:hover &
+    opacity: 0
+.colour-box__msg-copied
+  .colour-box:hover &
+    opacity: 0
+  .colour-box.is-copied:hover &
+    opacity: 1
+.colour-box__hash
+  height: 20px
+  line-height: 20px
+  width: 100%
+  transition: all .1s
+  .colour-box:hover &
+    margin-bottom: -10px
+    margin-top: 10px
 
 .styleguide-block__description
   box-sizing: border-box
@@ -394,6 +428,3 @@ pre.styleguide.is-open
 
 .booking-widget
   margin-bottom: 220px
-
-.clickable
-  cursor: pointer

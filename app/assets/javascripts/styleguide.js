@@ -4,7 +4,6 @@ require([
   "lib/core/ad_manager",
   "lib/components/slider",
   "lib/styleguide/charts",
-  "lib/utils/click_to_copy",
   "lib/components/poi_map",
   "lib/components/poi_list",
   "lib/components/page_hopper",
@@ -33,7 +32,7 @@ require([
   "picker",
   "pickerDate",
   "pickerLegacy",
-], function($, Konami, AdManager, Slider, Charts, ClickToCopy, POIMap, POIList, PageHopper, ThumbSlider, CarRentalWidget, TravelInsurance, FlightsWidget) {
+], function($, Konami, AdManager, Slider, Charts, POIMap, POIList, PageHopper, ThumbSlider, CarRentalWidget, TravelInsurance, FlightsWidget) {
 
   "use strict";
 
@@ -47,10 +46,6 @@ require([
 
   new AdManager({
     template: "styleguide"
-  });
-
-  $("[data-clipboard-text]").each(function(_, element) {
-    new ClickToCopy(element);
   });
 
   var d = new Date();
