@@ -18,6 +18,7 @@ define(function() {
 
     window.scrollTo(currentX, currentY);
     target.textContent = "";
+    target.outerHTML = "";
   }
 
   function ClickToCopy($target) {
