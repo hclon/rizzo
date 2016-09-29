@@ -33,11 +33,11 @@ define([ "jquery" ], function($) {
   matchProximity = function() {
     var colour = $("#proximityMatch").val(),
         $sections = $(".styleguide__colours").removeClass("has-match").removeAttr("style"),
-        $colourBlocks = $(".styleguide-block__item--colour");
+        $colourBlocks = $(".js-colour-box");
 
     $colourBlocks.each(function() {
-      var proximity = colourProximity(colour, this.innerHTML),
-          $this = $(this);
+      var $this = $(this),
+          proximity = colourProximity(colour, $this.data("clipboard-text"));
 
       $this.parent()
         .removeAttr("style")
