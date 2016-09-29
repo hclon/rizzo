@@ -82,16 +82,15 @@ define([ "jquery" ], function($) {
 
   $(".js-colour-box")
     .on("click", function() {
-      var colour = this.getAttribute("data-clipboard-text"),
-          target = $("input.js-click-to-copy")[0];
-      target.setAttribute("value", colour);
+      var $this = $(this),
+          $target = $("input.js-click-to-copy")[0];
+      $target.setAttribute("value", $this.data("clipboard-text"));
 
-      target.select();
-      target.setSelectionRange(0, 7);
+      $target.select();
       document.execCommand("copy");
+      $target.removeAttribute("value");
 
-      $(this).addClass("is-copied");
-      target.removeAttribute("value");
+      $this.addClass("is-copied");
     })
 
     .on("mouseleave", function() {
