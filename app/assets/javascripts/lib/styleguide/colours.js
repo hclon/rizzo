@@ -80,27 +80,21 @@ define([ "jquery" ], function($) {
 
   // Click-to-copy functionality
 
-  $(".js-colour-box").on("click", function(event) {
-    event.preventDefault();
-    $(this).on("mouseleave", function() { $(this).removeClass("is-copied"); });
-    var colour = this.getAttribute("data-clipboard-text"),
-        target = document.createElement("textarea");
-    target.style.position = "absolute";
-    target.style.left = "-9999px";
-    target.style.top = "0";
+  $(".js-colour-box")
+    .on("click", function() {
+      var colour = this.getAttribute("data-clipboard-text"),
+          target = $("input.js-click-to-copy")[0];
+      target.setAttribute("value", colour);
 
-    var currentX = window.scrollX,
-        currentY = window.scrollY;
-    document.body.appendChild(target);
+      target.select();
+      target.setSelectionRange(0, 7);
+      document.execCommand("copy");
 
-    target.textContent = colour;
-    target.focus();
-    target.setSelectionRange(0, 7);
-    document.execCommand("copy");
+      $(this).addClass("is-copied");
+      target.removeAttribute("value");
+    })
 
-    window.scrollTo(currentX, currentY);
-    target.textContent = "";
-    target.outerHTML = "";
-    $(this).addClass("is-copied");
-  });
+    .on("mouseleave", function() {
+      $(this).removeClass("is-copied");
+    });
 });

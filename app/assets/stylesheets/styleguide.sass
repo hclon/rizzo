@@ -169,7 +169,10 @@ pre.styleguide.is-open
     code
       white-space: nowrap
 
-.styleguide-block__item--colour
+.click-to-copy
+  width: 1px
+  height: 1px
+  opacity: 0
 
 .colour-box
   position: relative
@@ -192,26 +195,30 @@ pre.styleguide.is-open
   width: 100%
   opacity: 0
   transition: all .4s
-  .colour-box:hover &
-    opacity: 1
+  .colour-box:hover &,
+  .colour-box.is-copied &
     margin-bottom: 10px
     margin-top: -10px
+
 .colour-box__msg-copy
   .colour-box:hover &
     opacity: 1
-  .colour-box.is-copied:hover &
+  .colour-box.is-copied &
     opacity: 0
+
 .colour-box__msg-copied
   .colour-box:hover &
     opacity: 0
-  .colour-box.is-copied:hover &
+  .colour-box.is-copied &
     opacity: 1
+
 .colour-box__hash
   height: 20px
   line-height: 20px
   width: 100%
   transition: all .1s
-  .colour-box:hover &
+  .colour-box:hover &,
+  .colour-box.is-copied &
     margin-bottom: -10px
     margin-top: 10px
 
