@@ -80,20 +80,21 @@ define([ "jquery" ], function($) {
 
   // Click-to-copy functionality
 
-  $(".js-colour-box")
-    .on("click", function() {
-      var $this = $(this),
-          $target = $("input.js-click-to-copy")[0];
-      $target.setAttribute("value", $this.data("clipboard-text"));
+  var $target = $(".js-colour-box-input");
 
-      $target.select();
+  $(document).on("click", ".js-colour-box", function() {
+      var $this = $(this);
+
+      $target
+        .val($this.data("clipboard-text"))
+        .select();
       document.execCommand("copy");
-      $target.removeAttribute("value");
+      $target.val("");
 
       $this.addClass("is-copied");
-    })
-
-    .on("mouseleave", function() {
-      $(this).removeClass("is-copied");
     });
+
+  $(document).on("mouseleave", ".js-colour-box", function() {
+    $(this).removeClass("is-copied");
+  });
 });

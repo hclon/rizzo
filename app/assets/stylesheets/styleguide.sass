@@ -169,59 +169,6 @@ pre.styleguide.is-open
     code
       white-space: nowrap
 
-.click-to-copy
-  width: 1px
-  height: 1px
-  opacity: 0
-
-.colour-box
-  position: relative
-  cursor: copy
-  +font-size(13)
-  padding: 25px 0
-  color: white
-  margin: 0
-  @extend %rounded-corners
-
-  &.is-light
-    color: $body-copy
-  .is-approximate &
-    border-color: transparent
-  &.is-copied
-    cursor: default
-
-.colour-box__msg
-  position: absolute
-  width: 100%
-  opacity: 0
-  transition: all .1s
-  .colour-box:hover &,
-  .colour-box.is-copied &
-    margin-bottom: 10px
-    margin-top: -10px
-
-.colour-box__msg--copy
-  .colour-box:hover &
-    opacity: 1
-  .colour-box.is-copied &
-    opacity: 0
-
-.colour-box__msg--copied
-  .colour-box:hover &
-    opacity: 0
-  .colour-box.is-copied &
-    opacity: 1
-
-.colour-box__hash
-  height: 20px
-  line-height: 20px
-  width: 100%
-  transition: all .1s
-  .colour-box:hover &,
-  .colour-box.is-copied &
-    margin-bottom: -10px
-    margin-top: 10px
-
 .styleguide-block__description
   box-sizing: border-box
   overflow: hidden
@@ -435,3 +382,62 @@ pre.styleguide.is-open
 
 .booking-widget
   margin-bottom: 220px
+
+
+//----------------------------------------------------------
+// Colour boxes in Design Palette and UI Colours sections
+//
+// These styles deal with click-to-copy functionality. A msg
+// about this feature appears on hover and disappears on
+// mouse leave.
+//----------------------------------------------------------
+
+.colour-box-input
+  @extend %visually-hide
+
+.colour-box
+  +font-size(13)
+  @extend %rounded-corners
+  position: relative
+  margin: 0
+  padding: 25px 0
+  cursor: copy
+  color: white
+  &.is-light
+    color: $body-copy
+  .is-approximate &
+    border-color: transparent
+  &.is-copied
+    cursor: default
+
+.colour-box__msg
+  @extend %transition--base
+  position: absolute
+  width: 100%
+  opacity: 0
+  .colour-box:hover &,
+  .colour-box.is-copied &
+    margin-bottom: 10px
+    margin-top: -10px
+
+.colour-box__msg--copy
+  .colour-box:hover &
+    opacity: 1
+  .colour-box.is-copied &
+    opacity: 0
+
+.colour-box__msg--copied
+  .colour-box:hover &
+    opacity: 0
+  .colour-box.is-copied &
+    opacity: 1
+
+.colour-box__hash
+  @extend %transition--base
+  width: 100%
+  height: 20px
+  line-height: 20px
+  .colour-box:hover &,
+  .colour-box.is-copied &
+    margin-bottom: -10px
+    margin-top: 10px
