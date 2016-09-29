@@ -16,9 +16,9 @@
           .col--one-fifth{ data: { luminance: @app.get_luminance(colour_value) } }
             .card
               .colour-box.copy--h2.js-colour-box{style: "background-color: #{colour_value}", class: @app.get_luminance(colour_value) > 200 ? "is-light" : "", "data-clipboard-text" => colour_value.strip}<
-                .colour-box__msg.colour-box__msg-copy
+                .colour-box__msg.colour-box__msg--copy
                   Click to copy
-                .colour-box__msg.colour-box__msg-copied
+                .colour-box__msg.colour-box__msg--copied
                   Copied!
                 .colour-box__hash
                   = colour_value
